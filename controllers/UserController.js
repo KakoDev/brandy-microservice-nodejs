@@ -71,7 +71,7 @@ controller.putUserById = async (req, res) => {
 	}
 }
 
-consoller.getTestSql = async (req, res) => {
+controller.getTestSql = async (req, res) => {
 	const sequelize = new Sequelize("BPGC_POR_PUB", "Fabrica01", "Kibernum", {
     host: "191.234.174.16",
       port: "1433", 
