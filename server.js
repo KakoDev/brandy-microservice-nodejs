@@ -4,6 +4,7 @@ const cors        = require('cors');
 const router_api  = require('./routes/routes_rn');
 const app         = express();
 const port        = config.serverPort;
+
 require('dotenv').config()
 //Configurar cors de acuerdo a requerimientos.
 

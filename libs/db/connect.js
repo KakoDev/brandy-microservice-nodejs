@@ -1,15 +1,16 @@
-const Mongoose = require('mongoose');
+const { Sequelize } = require('sequelize');
 const config = require('../config/config.dev');
 
-Mongoose.Promise = global.Promise;
+const sequelize = new Sequelize(config.database_url_dev) 
 
 const connectToDb = async () => {
 	try {
-		await Mongoose.connect(config.database_url_dev);
-		console.log('Conectado a mongoDB!');
-	}
-	catch (err) {
-		console.log('No se pudo conectar a MongoDB', err);
-	}
+				await sequelize.authenticate();
+				console.log('Connection has been established successfully.');
+				return sequelize;
+		} catch (error) {
+				console.error('Unable to connect to the database:', error);
+				return null;
+		}
 }
 module.exports = connectToDb;
